@@ -746,7 +746,11 @@ export default {
     rangeText () {
       let range = this.startText;
       if (!this.singleDatePicker || this.singleDatePicker === 'range') {
-        range += this.locale.separator + this.endText;
+        if(this.startText.length  == 0 && this.endText.length == 0){
+          range = "Tümü";
+        }else{
+          range += this.locale.separator + this.endText;
+        }
       }
       return range;
     },
